@@ -8,7 +8,7 @@ function App() {
 
   function calc() {
     let a = Math.sqrt(num);
-    setSqrtNum(a.toFixed(3))
+    setSqrtNum(a.toFixed(2))
     let tempsum = [];
     let i = 0;
     let localnum = a;
