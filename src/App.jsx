@@ -48,22 +48,22 @@ function App() {
         {sqrtNum}
       </h3>
       <div className="flex-container">
-        <div className="grid-container">
+        <div className="grid-container1">
           {sum.slice(0, 5).map((value, index) => (
-            <div key={index} className="grid-item">
+            <div className="grid-item first-column" key={index}>
               {value}
             </div>
           ))}
         </div>
-        <div className="grid-container">
+        <div className="grid-container2">
           {sum.slice(5).map((value, index) => (
-            <div key={index} className="grid-item">
+            <div className="grid-item second-column" key={index}>
               {value}
             </div>
           ))}
+        </div>
         </div>
       </div>
-    </div>
   );
 }
 
