@@ -63,6 +63,10 @@ function App() {
           ))}
         </div>
         </div>
+        <footer className="footer">
+          <p className="footer-text">Made by Amaan</p>
+          <p> <a className="footer-link" href="https:/twitter.com/eulerbutcooler" target="_blank"> @eulerbutcooler </a></p>
+        </footer>
       </div>
   );
 }
