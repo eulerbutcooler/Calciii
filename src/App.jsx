@@ -14,10 +14,10 @@ function App() {
     
     let tempSqrt = sqrtNum
     let decimalValue = 0
-    if(sqrtNum>100 || sqrtNum<200){
+    if(sqrtNum>100 && sqrtNum<200){
       decimalValue = Math.ceil(tempSqrt-100)*0.01
     }
-    else if(sqrtNum>200 || sqrtNum<300){
+    else if(sqrtNum>200 && sqrtNum<300){
       decimalValue = Math.ceil(tempSqrt-200)*0.01
     }
 
