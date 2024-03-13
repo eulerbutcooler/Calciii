@@ -4,35 +4,47 @@ import "./App.css";
 function App() {
   const [num, setNum] = useState(0);
   const [sum, setSum] = useState([]);
-  const [sqrtNum, setSqrtNum] =useState(0);
+  const [sqrtNum, setSqrtNum] = useState(0);
+  const [mathFunctionResult1, setMathFunctionResult1] = useState(0);
+  const [mathFunctionResult2, setMathFunctionResult2] = useState(0);
 
-  function calc() {
-    let a = Math.sqrt(num);
-    setSqrtNum(a.toFixed(2))
-    let tempsum = [];
-    let i = 0;
-    let localnum = a;
-    while (i < 5) {
-      localnum--;
-      let b = (localnum * localnum).toFixed(3);
-      tempsum.push(b);
-      i++;
+  const calc = () => {
+    const sqrtNum = Math.sqrt(num);
+    setSqrtNum(sqrtNum.toFixed(2));
+
+    const onesAndTenths = Math.floor(sqrtNum % 10) + Math.floor((sqrtNum * 10) % 10) / 10;
+    const decimalValue = onesAndTenths * 0.01;
+
+    const newValue1 = num + decimalValue;
+    const result1 = newValue1 ** 2;
+    setMathFunctionResult1(result1.toFixed(3));
+
+    const newValue2 = num - decimalValue;
+    const result2 = newValue2 ** 2;
+    setMathFunctionResult2(result2.toFixed(3));
+
+    let tempSum = [];
+    let localNum = sqrtNum;
+    for (let i = 0; i < 5; i++) {
+      localNum--;
+      let b = (localNum * localNum).toFixed(3);
+      tempSum.push(b);
     }
 
-    let j = 0;
-    let localnum1 = a;
-    while (j < 5) {
-      localnum1++;
-      let c = (localnum1 * localnum1).toFixed(3);
-      tempsum.push(c);
-      j++;
+    localNum = sqrtNum;
+    for (let j = 0; j < 5; j++) {
+      localNum++;
+      let b = (localNum * localNum).toFixed(3);
+      tempSum.push(b);
     }
-    setSum(tempsum);
-  }
+
+    setSum(tempSum);
+  };
 
   const handleChange = (e) => {
     setNum(Number(e.target.value));
   };
+
   useEffect(() => {
     calc();
   }, [num]);
@@ -55,6 +67,14 @@ function App() {
             </div>
           ))}
         </div>
+        <div className="grid-container-middle">
+          <div className="grid-item middle-column-green">
+            {mathFunctionResult1}
+          </div>
+          <div className="grid-item middle-column-red">
+            {mathFunctionResult2}
+          </div>
+        </div>
         <div className="grid-container2">
           {sum.slice(5).map((value, index) => (
             <div className="grid-item second-column" key={index}>
@@ -62,12 +82,16 @@ function App() {
             </div>
           ))}
         </div>
-        </div>
-        <footer className="footer">
-          <p className="footer-text">Made by Amaan</p>
-          <p> <a className="footer-link" href="https:/twitter.com/eulerbutcooler" target="_blank"> @eulerbutcooler </a></p>
-        </footer>
       </div>
+      <footer className="footer">
+        <p className="footer-text">Made by Amaan</p>
+        <p>
+          <a className="footer-link" href="https://twitter.com/eulerbutcooler" target="_blank" rel="noopener noreferrer">
+            @eulerbutcooler
+          </a>
+        </p>
+      </footer>
+    </div>
   );
 }
 
