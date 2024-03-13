@@ -4,26 +4,35 @@ import "./App.css";
 function App() {
   const [num, setNum] = useState(0);
   const [sum, setSum] = useState([]);
-  const [sqrtNum, setSqrtNum] = useState(0);
+  const [sqrtNum, setSqrtNum] =useState(0);
 
-  const calc = () => {
-    const sqrtNum = Math.sqrt(num).toFixed(2);
-    setSqrtNum(sqrtNum);
-
-    const tempSum = [];
-    for (let i = -5; i <= 5; i++) {
-      if (i !== 0) {
-        const value = ((sqrtNum + i) ** 2).toFixed(3);
-        tempSum.push(value);
-      }
+  function calc() {
+    let a = Math.sqrt(num);
+    setSqrtNum(a.toFixed(2))
+    let tempsum = [];
+    let i = 0;
+    let localnum = a;
+    while (i < 5) {
+      localnum--;
+      let b = (localnum * localnum).toFixed(3);
+      tempsum.push(b);
+      i++;
     }
-    setSum(tempSum);
-  };
+
+    let j = 0;
+    let localnum1 = a;
+    while (j < 5) {
+      localnum1++;
+      let c = (localnum1 * localnum1).toFixed(3);
+      tempsum.push(c);
+      j++;
+    }
+    setSum(tempsum);
+  }
 
   const handleChange = (e) => {
     setNum(Number(e.target.value));
   };
-
   useEffect(() => {
     calc();
   }, [num]);
@@ -53,16 +62,12 @@ function App() {
             </div>
           ))}
         </div>
+        </div>
+        <footer className="footer">
+          <p className="footer-text">Made by Amaan</p>
+          <p> <a className="footer-link" href="https:/twitter.com/eulerbutcooler" target="_blank"> @eulerbutcooler </a></p>
+        </footer>
       </div>
-      <footer className="footer">
-        <p className="footer-text">Made by Amaan</p>
-        <p>
-          <a className="footer-link" href="https://twitter.com/eulerbutcooler" target="_blank" rel="noopener noreferrer">
-            @eulerbutcooler
-          </a>
-        </p>
-      </footer>
-    </div>
   );
 }
 
