@@ -87,3 +87,42 @@ body {
   text-shadow: 0 0 2px white, 0 0 3px white, 0 0 4px white, 0 0 5px white;
   transition: text-shadow 0.3s ease
 }
+
+.grid-container-middle {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+  padding: 5px;
+}
+
+.grid-item.middle-column-green {
+  background-color: #2b2b2b;
+  border: 1px solid #ecf0f1;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+  transition: transform 0.3s ease-in-out;
+  color: lightgreen;
+}
+
+.grid-item.middle-column-green:hover {
+  transform: scale(1.05);
+}
+
+.grid-item.middle-column-red {
+  background-color: #2b2b2b;
+  border: 1px solid #ecf0f1;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+  transition: transform 0.3s ease-in-out;
+  color: lightcoral;
+}
+
+.grid-item.middle-column-red:hover {
+  transform: scale(1.05);
+}
